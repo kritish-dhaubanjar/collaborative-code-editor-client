@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
+
 #file-explorer{
     background-color:#1b1b1b ;
     height: calc(100vh - 56px);
@@ -56,6 +58,11 @@ input:active, input:focus{
 
 .CodeMirror.cm-s-material-darker{
     height: 100%;
+}
+
+.CodeMirror * {
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
 }
 
 /*  */
