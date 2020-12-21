@@ -33,6 +33,15 @@ export default {
       indentWithTabs: true,
     });
 
+    this.editor.setValue(
+      `#include<iostream>
+using namespace std;
+
+int main(){
+  return 0;
+}`
+    );
+
     this.editor.on("change", (e) => {
       if (this.echo) {
         this.$emit("edit", this.editor.getValue());
