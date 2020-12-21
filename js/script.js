@@ -27,7 +27,7 @@ var app = new Vue({
   `,
   /* SOCKET */
   created() {
-    this.socket = io("http://127.0.0.1:3000");
+    this.socket = io("https://code-blackboard.herokuapp.com/");
 
     this.socket.on("connect", () => {
       console.log(this.socket.id);
