@@ -79,3 +79,7 @@ input:active, input:focus{
 .form-check-input{
     margin-top: 5px;
 }
+
+.nav{
+    min-height: 35px;
+}

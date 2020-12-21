@@ -49,14 +49,18 @@ export default {
 
   watch: {
     active() {
+      let cursorPosition = this.editor.getCursor();
       this.editor.setValue(this.files[this.active].content);
+      this.editor.setCursor(cursorPosition);
     },
     mode() {
       this.editor.setOption("mode", this.mode);
     },
     files() {
       this.echo = false;
+      let cursorPosition = this.editor.getCursor();
       this.editor.setValue(this.files[this.active].content);
+      this.editor.setCursor(cursorPosition);
     },
   },
 };
