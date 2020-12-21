@@ -28,7 +28,7 @@ export default {
           <small>
             <div class="input-group mb-3">
               <span class="input-group-text p-0 border-0 bg-transparent"><i class="las la-file text-primary"></i></span>
-              <input type="text" class="form-control py-0 border-0 bg-transparent" ref="filename" @blur="addFile"
+              <input maxlength="20" type="text" class="form-control py-0 border-0 bg-transparent" ref="filename" @blur="addFile"
               @keyup.enter.prevent="addFile"
               v-model="filename">
             </div>
