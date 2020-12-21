@@ -1,0 +1,81 @@
+#file-explorer{
+    background-color:#1b1b1b ;
+    height: calc(100vh - 56px);
+    width: 270px;
+}
+
+#file-explorer li{
+    background-color: transparent;
+}
+
+#file-explorer li:hover{
+    cursor: pointer;
+}
+
+#file-explorer li:hover .la-times{
+   display: inline;
+}
+
+#file-explorer li.active{
+    background-color: #000;
+    border:0;
+}
+
+.la-times{
+    display: none;
+    margin-top: 3px;
+}
+
+.la-file-medical{
+    font-size: 24px;
+}
+
+.la-file-medical:hover{
+    cursor: pointer;
+}
+
+/*  */
+
+input{
+    font-size: 13px !important;
+    padding-left: 4px !important;
+    color: #fff !important;
+}
+
+input:active, input:focus{
+    box-shadow: none !important;
+    outline: none;
+}
+
+/*  */
+#editor{
+    width: 100%;
+    max-height: calc(100vh - 56px - 35px);
+    overflow: hidden;
+}
+
+.CodeMirror.cm-s-material-darker{
+    height: 100%;
+}
+
+/*  */
+.nav{
+    background-color: #21252b;
+}
+.nav-link{
+    font-size: 13px;
+    color: #e3e3e3 !important;
+    background-color: #21252b;
+    border-right: 1px solid #000;
+}
+
+.nav-link.active{
+    font-size: 13px;
+    color: #fff !important;
+    background-color: #212121;
+    border-right: 1px solid #000;
+}
+
+.form-check-input{
+    margin-top: 5px;
+}
