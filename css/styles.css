@@ -120,3 +120,16 @@ input:active, input:focus{
 #status{
     font-size: 16px;
 }
+
+#status button{
+    box-shadow: none;
+}
+
+.dropdown-menu li:hover, .dropdown-menu li:focus, .dropdown-menu li:active {
+    background-color: #000;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:active{
+    background-color: #000;
+    color: #dc3545;
+}
