@@ -2,7 +2,7 @@
 
 #file-explorer{
     background-color:#1b1b1b ;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 56px - 21px);
     width: 240px;
     flex: 240px 0 0;
 }
@@ -54,7 +54,7 @@ input:active, input:focus{
 #editor{
     /* width: 100%; */
     width: calc(100vw - 240px);
-    max-height: calc(100vh - 56px - 35px);
+    max-height: calc(100vh - 56px - 35px - 21px);
     height: calc(100vh - 56px - 35px);
     overflow: hidden;
 }
@@ -115,4 +115,8 @@ input:active, input:focus{
 	background-image: -webkit-gradient(linear, 0 0, 0 100%,
 	                   color-stop(.5, rgba(255, 255, 255, .2)),
 					   color-stop(.5, transparent), to(transparent));
+}
+
+#status{
+    font-size: 16px;
 }

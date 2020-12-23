@@ -43,6 +43,7 @@ int main(){
     );
 
     this.editor.on("change", (e) => {
+      this.$emit("cursor", this.editor.getCursor());
       if (this.echo) {
         this.$emit("edit", this.editor.getValue());
       }

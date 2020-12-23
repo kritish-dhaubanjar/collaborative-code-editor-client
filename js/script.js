@@ -1,6 +1,7 @@
 import Navbar from "./src/components/Navbar.js";
 import Explorer from "./src/components/Explorer.js";
 import Editor from "./src/components/Editor.js";
+import Status from "./src/components/Status.js";
 
 var app = new Vue({
   el: "#app",
@@ -13,6 +14,7 @@ var app = new Vue({
       mode: "text/x-c++src",
       //
       mirror: false,
+      cursor: { ch: 0, line: 0 },
     };
   },
 
@@ -21,8 +23,9 @@ var app = new Vue({
         <Navbar :mirror="mirror" @toggle="mirror = !mirror"/>
         <div class="d-flex">
             <Explorer :files="files" @addFile="addFile" @removeFile="removeFile" @openFile="openFile" :active="active"/>
-            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode"/>
+            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor"/>
         </div>
+        <Status :mode="mode" :active="active" :files="files" :cursor="cursor"/>
     </div>
   `,
   /* SOCKET */
@@ -95,6 +98,12 @@ var app = new Vue({
               this.mode = "python";
               break;
 
+            case "xml":
+            case "html":
+            case "htm":
+              this.mode = "xml";
+              break;
+
             case "js":
               this.mode = "javascript";
               break;
@@ -105,6 +114,10 @@ var app = new Vue({
           }
         }
       }
+    },
+
+    setCursor(payload) {
+      this.cursor = { ...payload };
     },
 
     emit() {
@@ -120,5 +133,6 @@ var app = new Vue({
     Navbar,
     Explorer,
     Editor,
+    Status,
   },
 });
