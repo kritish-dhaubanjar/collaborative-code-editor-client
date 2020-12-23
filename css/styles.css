@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
 
+html{
+    overflow: hidden;
+}
+
 #file-explorer{
     background-color:#1b1b1b ;
     height: calc(100vh - 56px - 21px);
