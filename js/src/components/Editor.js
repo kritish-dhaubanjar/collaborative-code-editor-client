@@ -1,15 +1,15 @@
 export default {
-  props: ["files", "active", "mode"],
+  props: ["files", "active", "mode", "refresh"],
 
   data() {
     return {
       editor: null,
-      echo: false,
+      echo: true,
     };
   },
 
   template: `
-    <main class="w-100">
+    <main class="w-100 overflow-hidden">
         <nav class="nav">
             <a class="nav-link" href="#" :class="{active: index==active}" :key="index" v-for="(file,index) in files" @click="openFile(index)">
                 {{file.name}}
@@ -32,15 +32,6 @@ export default {
       lineNumbers: true,
       indentWithTabs: true,
     });
-
-    this.editor.setValue(
-      `#include<iostream>
-using namespace std;
-
-int main(){
-  return 0;
-}`
-    );
 
     this.editor.on("change", (e) => {
       this.$emit("cursor", this.editor.getCursor());
@@ -71,6 +62,10 @@ int main(){
       let cursorPosition = this.editor.getCursor();
       this.editor.setValue(this.files[this.active].content);
       this.editor.setCursor(cursorPosition);
+    },
+    refresh() {
+      this.editor.refresh();
+      this.editor.focus();
     },
   },
 };

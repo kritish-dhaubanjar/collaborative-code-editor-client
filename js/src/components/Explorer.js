@@ -12,6 +12,10 @@ export default {
     <section id="file-explorer" class="text-white py-3">
       <small class="px-2">File Explorer</small>
       <i class="las la-file-medical float-end me-2" @click="newFile"></i>
+
+      <input type="file" @change="uploadFile" accept="text/plain|.c|.cpp|.java|.html|.py|.js" multiple>
+      <i class="las la-file-upload float-end me-2"></i>
+
       <hr class="mb-0"/>
 
       <ul class="list-group list-group-flush">
@@ -50,7 +54,7 @@ export default {
 
     addFile() {
       if (this.filename.length > 0) {
-        this.$emit("addFile", this.filename);
+        this.$emit("addFile", { name: this.filename, content: "" });
       }
       this.filename = "";
       this.flag = false;
@@ -62,6 +66,26 @@ export default {
 
     openFile(index) {
       this.$emit("openFile", index);
+    },
+
+    uploadFile(e) {
+      if (e.target.files.length > 0) {
+        // let file = e.target.files[0];
+
+        for (let file of e.target.files)
+          if (file.type == "" || file.type.includes("text")) {
+            let filename = file.name;
+            let content = "";
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+              content = e.target.result;
+              this.$emit("addFile", { name: filename, content: content });
+            };
+
+            reader.readAsText(file);
+          }
+      }
     },
   },
 };

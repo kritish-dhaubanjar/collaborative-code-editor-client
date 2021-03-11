@@ -33,11 +33,11 @@ html{
     margin-top: 3px;
 }
 
-.la-file-medical{
+.la-file-medical, .la-file-upload{
     font-size: 24px;
 }
 
-.la-file-medical:hover{
+.la-file-medical:hover, .la-file-upload:hover{
     cursor: pointer;
 }
 
@@ -75,6 +75,7 @@ input:active, input:focus{
 /*  */
 .nav{
     background-color: #21252b;
+    width: 2048px;
 }
 .nav-link{
     font-size: 13px;
@@ -136,4 +137,16 @@ input:active, input:focus{
 .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:active{
     background-color: #000;
     color: #dc3545;
+}
+
+input[type='file']{
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    margin-left: 80px;
+    width: 24px;
+}
+
+input[type='file']:hover{
+    cursor: pointer;
 }

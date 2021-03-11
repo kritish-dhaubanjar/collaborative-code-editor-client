@@ -47,6 +47,8 @@ export default {
         style.appendChild(document.createTextNode(css));
       }
       document.querySelector("head").appendChild(style);
+
+      this.$emit("setFont");
     },
   },
 };

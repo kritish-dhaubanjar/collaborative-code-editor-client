@@ -15,6 +15,8 @@ var app = new Vue({
       //
       mirror: false,
       cursor: { ch: 0, line: 0 },
+      //
+      refresh: false,
     };
   },
 
@@ -23,14 +25,15 @@ var app = new Vue({
         <Navbar :mirror="mirror" @toggle="mirror = !mirror"/>
         <div class="d-flex">
             <Explorer :files="files" @addFile="addFile" @removeFile="removeFile" @openFile="openFile" :active="active"/>
-            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor"/>
+            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor" :refresh="refresh"/>
         </div>
-        <Status :mode="mode" :active="active" :files="files" :cursor="cursor"/>
+        <Status :mode="mode" :active="active" :files="files" :cursor="cursor" @setFont="setFont"/>
     </div>
   `,
   /* SOCKET */
   created() {
     this.socket = io("https://code-blackboard.herokuapp.com/");
+    // this.socket = io("http://localhost:3000/");
 
     this.socket.on("connect", () => {
       console.log(this.socket.id);
@@ -55,8 +58,8 @@ var app = new Vue({
   },
 
   methods: {
-    addFile(payload) {
-      this.files = [...this.files, { name: payload, content: "" }];
+    addFile({ name, content }) {
+      this.files = [...this.files, { name: name, content: content }];
       /* SOCKET */
       this.emit();
     },
@@ -125,7 +128,12 @@ var app = new Vue({
         files: this.files,
         active: this.active,
         mode: this.mode,
+        cursor: this.cursor,
       });
+    },
+
+    setFont() {
+      this.refresh = !this.refresh;
     },
   },
 
