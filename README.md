@@ -6,3 +6,5 @@ https://codeboard.netlify.app/
 An online code editor for interviews, troubleshooting, teaching & more…
 
 ![collaborative-code-editor-client](./codeboard.netlify.app.png)
+
+<img src="./ezgif-2-a0fe8746aaee.gif" width="100%"/>
