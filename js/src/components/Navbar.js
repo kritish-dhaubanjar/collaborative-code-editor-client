@@ -12,6 +12,7 @@ export default {
             <div class="form-check form-switch">
                 <label class="form-check-label text-white small">Mirror</label>
                 <input class="form-check-input" type="checkbox" :checked="mirror" @click="$emit('toggle')">
+                <a target="_blank" href="https://github.com/kritish-dhaubanjar/collaborative-code-editor-client"><img src="/assets/github.svg" class="ms-3"></a>
             </div>
         </div>
     </nav>

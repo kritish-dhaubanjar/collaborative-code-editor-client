@@ -101,9 +101,28 @@ var app = new Vue({
               this.mode = "python";
               break;
 
-            case "xml":
+            case "md":
+              this.mode = "markdown";
+              break;
+
+            case "sql":
+              this.mode = "sql";
+              break;
+
+            case "sh":
+              this.mode = "shell";
+              break;
+
+            case "jsx":
+              this.mode = "jsx";
+              break;
+
             case "html":
             case "htm":
+              this.mode = "htmlmixed";
+              break;
+
+            case "xml":
               this.mode = "xml";
               break;
 
@@ -111,8 +130,12 @@ var app = new Vue({
               this.mode = "javascript";
               break;
 
+            case "php":
+              this.mode = "php";
+              break;
+
             default:
-              this.mode = "text/x-c++src";
+              this.mode = "";
               break;
           }
         }
