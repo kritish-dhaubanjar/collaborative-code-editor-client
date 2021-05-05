@@ -1,5 +1,5 @@
 export default {
-  props: ["files", "active", "mode", "refresh"],
+  props: ["files", "active", "mode", "refresh", "theme"],
 
   data() {
     return {
@@ -26,8 +26,9 @@ export default {
 
     this.editor = CodeMirror.fromTextArea(textarea, {
       mode: "text/x-c++src",
-      //   mode: "javascript",
-      theme: "material-darker",
+      // mode: "javascript",
+      theme: this.theme,
+      // theme: "material-palenight",
       tabSize: 2,
       lineNumbers: true,
       indentWithTabs: true,
@@ -66,6 +67,9 @@ export default {
     refresh() {
       this.editor.refresh();
       this.editor.focus();
+    },
+    theme() {
+      this.editor.setOption("theme", this.theme);
     },
   },
 };

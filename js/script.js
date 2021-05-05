@@ -15,6 +15,7 @@ var app = new Vue({
       //
       mirror: false,
       cursor: { ch: 0, line: 0 },
+      theme: "material-darker",
       //
       refresh: false,
     };
@@ -25,9 +26,9 @@ var app = new Vue({
         <Navbar :mirror="mirror" @toggle="mirror = !mirror"/>
         <div class="d-flex">
             <Explorer :files="files" @addFile="addFile" @removeFile="removeFile" @openFile="openFile" :active="active"/>
-            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor" :refresh="refresh"/>
+            <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor" :refresh="refresh" :theme="theme"/>
         </div>
-        <Status :mode="mode" :active="active" :files="files" :cursor="cursor" @setFont="setFont"/>
+        <Status :mode="mode" :active="active" :files="files" :cursor="cursor" @setFont="setFont" @setTheme="setTheme"/>
     </div>
   `,
   /* SOCKET */
@@ -157,6 +158,10 @@ var app = new Vue({
 
     setFont() {
       this.refresh = !this.refresh;
+    },
+
+    setTheme(payload) {
+      this.theme = payload;
     },
   },
 

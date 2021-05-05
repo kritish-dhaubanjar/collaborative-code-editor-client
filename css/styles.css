@@ -67,6 +67,18 @@ input:active, input:focus{
     height: 100%;
 }
 
+.CodeMirror.cm-s-dracula{
+    height: 100%;
+}
+
+.CodeMirror.cm-s-material-palenight{
+    height: 100%;
+}
+
+.CodeMirror.cm-s-material-ocean{
+    height: 100%;
+}
+
 .CodeMirror * {
     font-family: 'Fira Code', monospace;
     font-size: 13px;

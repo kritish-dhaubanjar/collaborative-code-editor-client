@@ -73,7 +73,11 @@ export default {
         // let file = e.target.files[0];
 
         for (let file of e.target.files)
-          if (file.type == "" || file.type.includes("text")) {
+          if (
+            file.type == "" ||
+            file.type.includes("text") ||
+            file.type.includes("sql")
+          ) {
             let filename = file.name;
             let content = "";
 
