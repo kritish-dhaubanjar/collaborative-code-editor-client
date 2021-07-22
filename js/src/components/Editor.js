@@ -26,6 +26,7 @@ export default {
 
     this.editor = CodeMirror.fromTextArea(textarea, {
       mode: "text/x-c++src",
+      lineWrapping: true,
       // mode: "javascript",
       theme: this.theme,
       // theme: "material-palenight",
