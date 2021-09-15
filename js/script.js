@@ -128,6 +128,7 @@ var app = new Vue({
               break;
 
             case "js":
+            case "json":
               this.mode = "javascript";
               break;
 
