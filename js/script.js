@@ -9,7 +9,8 @@ var app = new Vue({
   data() {
     return {
       socket: null,
-      files: [{ name: "main.cpp", content: "" }],
+      connected: false,
+      files: [{ name: "01 Doubly Linked List.cpp", content: "" }],
       active: 0,
       mode: "text/x-c++src",
       //
@@ -23,7 +24,7 @@ var app = new Vue({
 
   template: `
     <div>
-        <Navbar :mirror="mirror" @toggle="mirror = !mirror"/>
+        <Navbar :mirror="mirror" @toggle="mirror = !mirror" :connected="connected"/>
         <div class="d-flex">
             <Explorer :files="files" @addFile="addFile" @removeFile="removeFile" @openFile="openFile" :active="active"/>
             <Editor :files="files" @openFile="openFile" :active="active" @edit="edit" :mode="mode" @cursor="setCursor" :refresh="refresh" :theme="theme"/>
@@ -37,6 +38,7 @@ var app = new Vue({
     // this.socket = io("http://localhost:3000/");
 
     this.socket.on("connect", () => {
+      this.connected = true;
       console.log(this.socket.id);
     });
 
