@@ -12,7 +12,7 @@ export default {
     <main class="w-100 overflow-hidden">
         <nav class="nav">
             <a class="nav-link" href="#" :class="{active: index==active}" :key="index" v-for="(file,index) in files" @click="openFile(index)">
-                {{file.name}}
+            <span v-html="icon(file.name)"></span>&nbsp;{{file.name}}
             </a>
         </nav>
         <section id="editor">
@@ -71,6 +71,58 @@ export default {
     },
     theme() {
       this.editor.setOption("theme", this.theme);
+    },
+  },
+
+  computed: {
+    icon() {
+      return (filename) => {
+        if (filename.includes(".")) {
+          filename = filename.split(".");
+          if (filename.length >= 2) {
+            let ext = filename.pop();
+
+            switch (ext) {
+              case "c":
+              case "cpp":
+                return `<i class="las la-file text-primary"></i>`;
+              case "java":
+                return `<i class="lab la-java text-primary"></i>`;
+
+              case "py":
+                return `<i class="lab la-python text-primary"></i>`;
+
+              case "md":
+                return `<i class="lab la-markdown text-primary"></i>`;
+
+              case "sql":
+                return `<i class="las la-database text-primary"></i>`;
+
+              case "sh":
+                return `<i class="las la-scroll text-primary"></i>`;
+
+              case "jsx":
+                return `<i class="lab la-react text-primary"></i>`;
+
+              case "html":
+              case "htm":
+                return `<i class="las la-file-code text-primary"></i>`;
+
+              case "xml":
+                return `<i class="las la-code text-primary"></i>`;
+
+              case "js":
+                return `<i class="lab la-js-square text-primary"></i>`;
+
+              case "php":
+                return `<i class="lab la-php text-primary"></i>`;
+
+              default:
+                return `<i class="las la-file text-primary"></i>`;
+            }
+          }
+        }
+      };
     },
   },
 };

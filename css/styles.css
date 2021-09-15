@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap');
 
 html{
     overflow: hidden;
 }
 
 #file-explorer{
-    background-color:#1b1b1b ;
+    background-color: #090b10;
     height: calc(100vh - 56px - 21px);
     width: 240px;
     flex: 240px 0 0;
@@ -25,6 +25,7 @@ html{
 
 #file-explorer li.active{
     background-color: #000;
+    color: #76cbc4;
     border:0;
 }
 
@@ -59,7 +60,7 @@ input:active, input:focus{
     /* width: 100%; */
     width: calc(100vw - 240px);
     max-height: calc(100vh - 56px - 35px - 21px);
-    height: calc(100vh - 56px - 35px);
+    height: calc(100vh - 56px - 58px);
     overflow: hidden;
 }
 
@@ -101,6 +102,7 @@ input:active, input:focus{
     color: #fff !important;
     background-color: #212121;
     border-right: 1px solid #000;
+    border-bottom: 2px solid #76cbc4;
 }
 
 .form-check-input{
@@ -161,4 +163,13 @@ input[type='file']{
 
 input[type='file']:hover{
     cursor: pointer;
+}
+
+.filename{
+    max-width: 170px;
+    width: 170px;
+    display: inline-block;
+    overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

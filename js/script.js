@@ -15,7 +15,7 @@ var app = new Vue({
       //
       mirror: false,
       cursor: { ch: 0, line: 0 },
-      theme: "material-darker",
+      theme: "material-ocean",
       //
       refresh: false,
     };

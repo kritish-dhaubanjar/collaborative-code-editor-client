@@ -22,7 +22,7 @@ export default {
         <li class="list-group-item" v-for="(file,index) in files" :key="index" :class="{active: index==active}" @click="openFile(index)">
           <small>
             <span>
-              <i class="las la-file text-primary"></i> {{file.name}}
+              <span v-html="icon(file.name)"></span>&nbsp;<span class="filename">{{file.name}}</span>
             </span>
             <i class="las la-times float-end" @click="removeFile(index)"></i>
           </small>
@@ -43,6 +43,58 @@ export default {
       
     </section>
     `,
+
+  computed: {
+    icon() {
+      return (filename) => {
+        if (filename.includes(".")) {
+          filename = filename.split(".");
+          if (filename.length >= 2) {
+            let ext = filename.pop();
+
+            switch (ext) {
+              case "c":
+              case "cpp":
+                return `<i class="las la-file text-primary"></i>`;
+              case "java":
+                return `<i class="lab la-java text-primary"></i>`;
+
+              case "py":
+                return `<i class="lab la-python text-primary"></i>`;
+
+              case "md":
+                return `<i class="lab la-markdown text-primary"></i>`;
+
+              case "sql":
+                return `<i class="las la-database text-primary"></i>`;
+
+              case "sh":
+                return `<i class="las la-scroll text-primary"></i>`;
+
+              case "jsx":
+                return `<i class="lab la-react text-primary"></i>`;
+
+              case "html":
+              case "htm":
+                return `<i class="las la-file-code text-primary"></i>`;
+
+              case "xml":
+                return `<i class="las la-code text-primary"></i>`;
+
+              case "js":
+                return `<i class="lab la-js-square text-primary"></i>`;
+
+              case "php":
+                return `<i class="lab la-php text-primary"></i>`;
+
+              default:
+                return `<i class="las la-file text-primary"></i>`;
+            }
+          }
+        }
+      };
+    },
+  },
 
   methods: {
     newFile() {
@@ -70,14 +122,8 @@ export default {
 
     uploadFile(e) {
       if (e.target.files.length > 0) {
-        // let file = e.target.files[0];
-
         for (let file of e.target.files)
-          if (
-            file.type == "" ||
-            file.type.includes("text") ||
-            file.type.includes("sql")
-          ) {
+          try {
             let filename = file.name;
             let content = "";
 
@@ -88,6 +134,8 @@ export default {
             };
 
             reader.readAsText(file);
+          } catch (error) {
+            console.log(error);
           }
       }
     },
