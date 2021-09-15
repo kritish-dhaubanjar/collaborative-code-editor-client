@@ -20,10 +20,8 @@ export default {
 
       <ul class="list-group list-group-flush">
         <li class="list-group-item" v-for="(file,index) in files" :key="index" :class="{active: index==active}" @click="openFile(index)">
-          <small>
-            <span>
-              <span v-html="icon(file.name)"></span>&nbsp;<span class="filename">{{file.name}}</span>
-            </span>
+          <small class="d-flex align-items-center">
+            <span v-html="icon(file.name)"></span>&nbsp;<span class="filename">{{file.name}}</span>
             <i class="las la-times float-end" @click="removeFile(index)"></i>
           </small>
         </li>
@@ -32,7 +30,7 @@ export default {
           <small>
             <div class="input-group mb-3">
               <span class="input-group-text p-0 border-0 bg-transparent"><i class="las la-file text-primary"></i></span>
-              <input maxlength="20" type="text" class="form-control py-0 border-0 bg-transparent" ref="filename" @blur="addFile"
+              <input maxlength="100" type="text" class="form-control py-0 border-0 bg-transparent" ref="filename" @blur="addFile"
               @keyup.enter.prevent="addFile"
               v-model="filename">
             </div>
