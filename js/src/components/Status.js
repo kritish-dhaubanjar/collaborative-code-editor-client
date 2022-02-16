@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       font: 13,
-      theme: "material-darker",
+      theme: "material-ocean",
     };
   },
   template: `
