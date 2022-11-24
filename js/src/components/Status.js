@@ -47,7 +47,7 @@ export default {
   methods: {
     setFont(size) {
       this.font = size;
-      let css = `.CodeMirror * {font-family: 'Fira Code', monospace;font-size: ${size}px;}`;
+      let css = `.CodeMirror * {font-family: 'JetBrains Mono', monospace;font-size: ${size}px;}`;
 
       let style = document.querySelector("head style");
       if (style) {
