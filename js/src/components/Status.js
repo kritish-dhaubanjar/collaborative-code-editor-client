@@ -3,7 +3,7 @@ export default {
 
   data() {
     return {
-      font: 13,
+      font: 14,
       theme: "material-ocean",
     };
   },
