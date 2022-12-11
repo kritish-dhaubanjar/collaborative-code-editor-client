@@ -1,6 +1,6 @@
 # collaborative-code-editor-client
 
-https://codeboard.netlify.app/
+https://codeboard.tk/
 
 ### Share Code in Real-time with Developers
 An online code editor for interviews, troubleshooting, teaching & more…
