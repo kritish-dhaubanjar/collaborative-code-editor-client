@@ -117,7 +117,7 @@ input:focus {
 }
 
 .nav {
-  min-height: 35px;
+  min-height: calc(35px + 2px);
 }
 
 *::-webkit-scrollbar-track {
