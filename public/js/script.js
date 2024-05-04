@@ -98,6 +98,7 @@ var app = new Vue({
             case "c":
             case "cpp":
             case "java":
+            case "txt":
               this.mode = "text/x-c++src";
               break;
 
