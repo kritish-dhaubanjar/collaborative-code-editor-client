@@ -91,13 +91,14 @@ input:focus {
 /*  */
 .nav {
   background-color: #21252b;
-  width: 2048px;
+  flex-wrap: nowrap;
 }
 .nav-link {
   font-size: 13px;
   color: #e3e3e3 !important;
   background-color: #21252b;
   border-right: 1px solid #000;
+  white-space: nowrap;
 }
 
 .nav-link.active {
